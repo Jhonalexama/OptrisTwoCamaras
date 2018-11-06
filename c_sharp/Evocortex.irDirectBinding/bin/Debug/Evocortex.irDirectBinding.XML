@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Evocortex.irDirectBinding</name>
+    </assembly>
+    <members>
+        <member name="T:Evocortex.irDirectBinding.OptrisColoringPalette">
+            <summary>
+            OptrisColoringPalettes
+            </summary>
+        </member>
+        <member name="T:Evocortex.irDirectBinding.OptrisPaletteScalingMethod">
+            <summary>
+            OptrisPaletteScalingMethodes
+            </summary>
+        </member>
+        <member name="T:Evocortex.irDirectBinding.IrDirectInterface">
+            <summary>
+            IRImager Interface for USB or TCP-Deamon connection
+            </summary>
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterface.#ctor">
+            <summary>
+            Private constructor for Singleton Pattern
+            </summary>
+        </member>
+        <member name="P:Evocortex.irDirectBinding.IrDirectInterface.Instance">
+            <summary>
+            Singleton Instance for Access
+            </summary>
+        </member>
+        <member name="P:Evocortex.irDirectBinding.IrDirectInterface.IsAutomaticShutterActive">
+            <summary>
+            Activate or deactivates the automatic shutter
+            </summary>
+            <exception cref="T:System.Exception">Thrown on error</exception>
+        </member>
+        <member name="P:Evocortex.irDirectBinding.IrDirectInterface.IsConnected">
+            <summary>
+            Returns current connection state
+            </summary>
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterface.Connect(System.String,System.String,System.String)">
+            <summary>
+            Connected to this computer via USB
+            </summary>
+            <param name="xmlConfigPath">Path to xml config</param>
+            <param name="formatsDefPath">Path to folder containing formants.def (for default path use: "")</param>
+            <param name="logFileDirectory">Path to folder containing log files (for default path use: "")</param>
+            <exception cref="T:System.Exception">Thrown on error</exception>
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterface.Connect(System.String,System.Int32)">
+            <summary>
+            Initializes the TCP connection to the daemon process (non-blocking)
+            </summary>
+            <param name="hostname">Hostname or IP-Adress of the machine where the daemon process is running ("localhost" can be resolved)</param>
+            <param name="port">Port of daemon, default 1337</param>
+            <exception cref="T:System.Exception">Thrown on error</exception>
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterface.Disconnect">
+            <summary>
+            Disconnects the camera, either connected via USB or TCP
+            </summary>
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterface.GetThermalImage">
+            <summary>
+             Accessor to thermal image.
+             Conversion to temperature values are to be performed as follows:
+             t = ((double)data[row,column] - 1000.0) / 10.0
+            </summary>
+            <returns>Thermal Image as ushort[height, width]</returns>
+            <exception cref="T:System.Exception">Thrown on error</exception>
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterface.GetPaletteImage">
+            <summary>
+            Accessor to false color coded palette image
+            </summary>
+            <returns>RGB palette image</returns>
+            /// <exception cref="T:System.Exception">Thrown on error</exception>
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterface.GetThermalPaletteImage">
+            <summary>
+            Accessor to false color coded palette image and thermal image from same frame
+            </summary>
+            <returns cref="T:Evocortex.irDirectBinding.ThermalPaletteImage">False color coded palette and thermal image</returns>
+            <exception cref="T:System.Exception">Thrown on error</exception>
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterface.SetPaletteFormat(Evocortex.irDirectBinding.OptrisColoringPalette,Evocortex.irDirectBinding.OptrisPaletteScalingMethod)">
+            <summary>
+            Sets palette format and scaling method.
+            </summary>
+            <param name="format">Palette format</param>
+            <param name="scale">Scaling method</param>
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterface.SetTemperatureRange(System.Int32,System.Int32)">
+            <summary>
+            Sets the minimum and maximum temperature range to the camera (also configurable in xml-config)
+            </summary>
+            <param name="tMin"></param>
+            <param name="tMax"></param>
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterface.TriggerShutterFlag">
+            <summary>
+            Triggers a shutter flag cycle
+            </summary>
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterface.SetRadiationParameters(System.Single,System.Single,System.Single)">
+            <summary>
+            sets radiation properties, i.e. emissivity and transmissivity parameters (not implemented for TCP connection, usb mode only)
+            </summary>
+            <param name="emissivity">emissivity emissivity of observed object [0;1]</param>
+            <param name="transmissivity">transmissivity transmissivity of observed object [0;1]</param>
+            <param name="tAmbient">tAmbient ambient temperature, setting invalid values (below -273,15 degrees) forces the library to take its own measurement values.</param>
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterfaceInvoke.evo_irimager_usb_init(System.String,System.String,System.String)">
+            @brief Initializes an IRImager instance connected to this computer via USB
+            @param[in] xml_config path to xml config
+            @param[in] formats_def path to folder containing formants.def (for default path use: "")
+            @param[in] log_file path to folder containing log files (for default path use: "")
+            @return 0 on success, -1 on error
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterfaceInvoke.evo_irimager_tcp_init(System.String,System.Int32)">
+            @brief Initializes the TCP connection to the daemon process (non-blocking)
+            @param[in] IP address of the machine where the daemon process is running ("localhost" can be resolved)
+            @param port Port of daemon, default 1337
+            @return  error code: 0 on success, -1 on host not found (wrong IP, daemon not running), -2 on fatal error
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterfaceInvoke.evo_irimager_terminate">
+            @brief Disconnects the camera, either connected via USB or TCP
+            @return 0 on success, -1 on error
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterfaceInvoke.evo_irimager_get_thermal_image_size(System.Int32@,System.Int32@)">
+            @brief Accessor to image width and height
+            @param[out] w width
+            @param[out] h height
+            @return 0 on success, -1 on error
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterfaceInvoke.evo_irimager_get_palette_image_size(System.Int32@,System.Int32@)">
+            @brief Accessor to width and height of false color coded palette image
+            @param[out] w width
+            @param[out] h height
+            @return 0 on success, -1 on error
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterfaceInvoke.evo_irimager_get_thermal_image(System.Int32@,System.Int32@,System.UInt16[0:,0:])">
+            @brief Accessor to thermal image by reference
+            Conversion to temperature values are to be performed as follows:
+            t = ((double)data[x] - 1000.0) / 10.0;
+            @param[in] w image width
+            @param[in] h image height
+            @param[out] data pointer to unsigned short array allocate by the user (size of w * h)
+            @return error code: 0 on success, -1 on error, -2 on fatal error (only TCP connection)
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterfaceInvoke.evo_irimager_get_palette_image(System.Int32@,System.Int32@,System.IntPtr)">
+            @brief Accessor to an RGB palette image by reference
+            data format: unsigned char array (size 3 * w * h) r,g,b
+            @param[in] w image width
+            @param[in] h image height
+            @param[out] data pointer to unsigned char array allocate by the user (size of 3 * w * h)
+            @return error code: 0 on success, -1 on error, -2 on fatal error (only TCP connection)
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterfaceInvoke.evo_irimager_get_thermal_palette_image(System.Int32,System.Int32,System.UInt16[0:,0:],System.Int32,System.Int32,System.IntPtr)">
+            @brief Accessor to an RGB palette image and a thermal image by reference
+            @param[in] w_t width of thermal image
+            @param[in] h_t height of thermal image
+            @param[out] data_t data pointer to unsigned short array allocate by the user (size of w * h)
+            @param[in] w_p width of palette image (can differ from thermal image width due to striding)
+            @param[in] h_p height of palette image (can differ from thermal image height due to striding)
+            @param[out] data_p data pointer to unsigned char array allocate by the user (size of 3 * w * h)
+            @return error code: 0 on success, -1 on error, -2 on fatal error (only TCP connection)
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterfaceInvoke.evo_irimager_set_palette(System.Int32)">
+             @brief sets palette format to daemon.
+             Defined in IRImager Direct-SDK, see
+             enum EnumOptrisColoringPalette{eAlarmBlue   = 1,
+                                            eAlarmBlueHi = 2,
+                                            eGrayBW      = 3,
+                                            eGrayWB      = 4,
+                                            eAlarmGreen  = 5,
+                                            eIron        = 6,
+                                            eIronHi      = 7,
+                                            eMedical     = 8,
+                                            eRainbow     = 9,
+                                            eRainbowHi   = 10,
+                                            eAlarmRed    = 11 };
+            
+             @param id palette id
+             @return error code: 0 on success, -1 on error, -2 on fatal error (only TCP connection)
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterfaceInvoke.evo_irimager_set_palette_scale(System.Int32)">
+            @brief sets palette scaling method
+            Defined in IRImager Direct-SDK, see
+            enum EnumOptrisPaletteScalingMethod{eManual = 1,
+                                                eMinMax = 2,
+                                                eSigma1 = 3,
+                                                eSigma3 = 4 };
+            @param scale scaling method id
+            @return error code: 0 on success, -1 on error, -2 on fatal error (only TCP connection)
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterfaceInvoke.evo_irimager_set_shutter_mode(System.Int32)">
+            @brief sets shutter flag control mode
+            @param mode 0 means manual control, 1 means automode
+            @return error code: 0 on success, -1 on error, -2 on fatal error (only TCP connection)
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterfaceInvoke.evo_irimager_trigger_shutter_flag">
+            @brief forces a shutter flag cycle
+            @return error code: 0 on success, -1 on error, -2 on fatal error (only TCP connection)
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterfaceInvoke.evo_irimager_set_temperature_range(System.Int32,System.Int32)">
+            @brief sets the minimum and maximum remperature range to the camera (also configurable in xml-config)
+            @return error code: 0 on success, -1 on error, -2 on fatal error (only TCP connection)
+        </member>
+        <member name="M:Evocortex.irDirectBinding.IrDirectInterfaceInvoke.evo_irimager_set_radiation_parameters(System.Single,System.Single,System.Single)">
+            @brief sets radiation properties, i.e. emissivity and transmissivity parameters (not implemented for TCP connection, usb mode only)
+            @param[in] emissivity emissivity of observed object [0;1]
+            @param[in] transmissivity transmissivity of observed object [0;1]
+            @param[in] tAmbient ambient temperature, setting invalid values (below -273,15 degrees) forces the library to take its own measurement values.
+            @return error code: 0 on success, -1 on error, -2 on fatal error (only TCP connection)
+        </member>
+        <member name="T:Evocortex.irDirectBinding.ThermalPaletteImage">
+            <summary>
+            Container for thermal and false color palette image.
+            </summary>
+        </member>
+        <member name="M:Evocortex.irDirectBinding.ThermalPaletteImage.#ctor(System.UInt16[0:,0:],System.Drawing.Bitmap)">
+            <summary>
+            Constructor for thermal and false color palette image.
+            </summary>
+            <param name="thermalImage">The thermal image</param>
+            <param name="paletteImage">The palette image</param>
+        </member>
+        <member name="P:Evocortex.irDirectBinding.ThermalPaletteImage.ThermalImage">
+            <summary>
+             Accessor to thermal image.
+             Conversion to temperature values are to be performed as follows:
+             t = ((double)data[row,column] - 1000.0) / 10.0
+            </summary>
+            <returns>Thermal Image as ushort[height, width]</returns>
+        </member>
+        <member name="P:Evocortex.irDirectBinding.ThermalPaletteImage.PaletteImage">
+            <summary>
+            Accessor to false color coded palette image
+            </summary>
+            <returns>RGB palette image</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,17 @@
+C:\Users\votec\Desktop\libirimager-4.1.1-windows\examples\c_sharp\Evocortex.irDirectBinding.Example\bin\x86\Debug\libirimager.dll
+C:\Users\votec\Desktop\libirimager-4.1.1-windows\examples\c_sharp\Evocortex.irDirectBinding.Example\bin\x86\Debug\Formats.def
+C:\Users\votec\Desktop\libirimager-4.1.1-windows\examples\c_sharp\Evocortex.irDirectBinding.Example\bin\x86\Debug\generic.xml
+C:\Users\votec\Desktop\libirimager-4.1.1-windows\examples\c_sharp\Evocortex.irDirectBinding.Example\bin\x86\Debug\Evocortex.irDirectBinding.Example.exe.config
+C:\Users\votec\Desktop\libirimager-4.1.1-windows\examples\c_sharp\Evocortex.irDirectBinding.Example\bin\x86\Debug\Evocortex.irDirectBinding.Example.exe
+C:\Users\votec\Desktop\libirimager-4.1.1-windows\examples\c_sharp\Evocortex.irDirectBinding.Example\bin\x86\Debug\Evocortex.irDirectBinding.Example.pdb
+C:\Users\votec\Desktop\libirimager-4.1.1-windows\examples\c_sharp\Evocortex.irDirectBinding.Example\bin\x86\Debug\Evocortex.irDirectBinding.dll
+C:\Users\votec\Desktop\libirimager-4.1.1-windows\examples\c_sharp\Evocortex.irDirectBinding.Example\bin\x86\Debug\Evocortex.irDirectBinding.pdb
+C:\Users\votec\Desktop\libirimager-4.1.1-windows\examples\c_sharp\Evocortex.irDirectBinding.Example\bin\x86\Debug\Evocortex.irDirectBinding.xml
+C:\Users\votec\Desktop\libirimager-4.1.1-windows\examples\c_sharp\Evocortex.irDirectBinding.Example\obj\x86\Debug\Evocortex.irDirectBinding.Example.csprojAssemblyReference.cache
+C:\Users\votec\Desktop\libirimager-4.1.1-windows\examples\c_sharp\Evocortex.irDirectBinding.Example\obj\x86\Debug\Evocortex.irDirectBinding.Example.FormMain.resources
+C:\Users\votec\Desktop\libirimager-4.1.1-windows\examples\c_sharp\Evocortex.irDirectBinding.Example\obj\x86\Debug\Evocortex.irDirectBinding.Example.Properties.Resources.resources
+C:\Users\votec\Desktop\libirimager-4.1.1-windows\examples\c_sharp\Evocortex.irDirectBinding.Example\obj\x86\Debug\Evocortex.irDirectBinding.Example.csproj.GenerateResource.cache
+C:\Users\votec\Desktop\libirimager-4.1.1-windows\examples\c_sharp\Evocortex.irDirectBinding.Example\obj\x86\Debug\Evocortex.irDirectBinding.Example.csproj.CoreCompileInputs.cache
+C:\Users\votec\Desktop\libirimager-4.1.1-windows\examples\c_sharp\Evocortex.irDirectBinding.Example\obj\x86\Debug\Evocortex.irDirectBinding.Example.csproj.CopyComplete
+C:\Users\votec\Desktop\libirimager-4.1.1-windows\examples\c_sharp\Evocortex.irDirectBinding.Example\obj\x86\Debug\Evocortex.irDirectBinding.Example.exe
+C:\Users\votec\Desktop\libirimager-4.1.1-windows\examples\c_sharp\Evocortex.irDirectBinding.Example\obj\x86\Debug\Evocortex.irDirectBinding.Example.pdb
